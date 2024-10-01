@@ -1,0 +1,33 @@
+
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#container {
+    display: flex;
+    width: 560px;
+    height: 560px;
+    border: 3px solid black;
+    padding: 0;
+
+}
+
+#spalte {
+    box-sizing: content-box;
+    margin: 0;
+    flex: 1 1 0;
+
+}
+
+#zeile {
+    display: flex;
+    flex-direction: column;
+    box-sizing: content-box;
+    margin: 0;
+    flex: 1 1 0;
+
+
+}
+
