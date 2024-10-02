@@ -1,5 +1,36 @@
 const con = document.querySelector("#container");
 const btn = document.querySelector("button");
+const rango = document.querySelector(".ranCo");
+const opa = document.querySelector(".opaDown");
+let randon = false;
+let onion = false;
+
+function colorChoice(){
+    var tiles = document.querySelectorAll("#tile");
+        tiles.forEach(tile => {
+            if(randon===true){
+            tile.addEventListener('mouseenter', () => {
+                tile.style.backgroundColor = 
+                `#${genRanHex(6)}`
+            });}
+            else{
+                tile.addEventListener('mouseenter', () => {
+                    tile.style.backgroundColor = 
+                    `black`
+                });
+            }
+    
+        });
+}
+
+rango.addEventListener("click", () => {
+    randon = !randon;
+    colorChoice();
+                })
+
+opa.addEventListener("click", () => {
+    onion = !onion;
+})
 
 function createGrid(numOfDiv){
     
@@ -15,23 +46,15 @@ function createGrid(numOfDiv){
                 divo.appendChild(divi);
             }
     }
-    var tiles = document.querySelectorAll("#tile");
-    tiles.forEach(tile => {
-        tile.addEventListener('mouseenter', () => {
-        tile.style.backgroundColor = 'black';
-    
-        });
-    
-    });
+    colorChoice();
 
 }
+
 createGrid(16);
-
-
 
 function deleteChild(){
 
-let e = document.querySelector("div");
+let e = document.querySelector("#container");
 
 let child = e.lastElementChild;
 while (child) {
@@ -52,4 +75,6 @@ function resize(){
     deleteChild();
     createGrid(size);
 }
+
+const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
 
